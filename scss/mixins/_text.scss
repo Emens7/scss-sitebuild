@@ -1,0 +1,15 @@
+@mixin text($breakpoint: "") {
+
+    .text#{$breakpoint}-center { 
+        text-align: center !important; 
+    }
+
+    .text#{$breakpoint}-left { 
+        text-align: left !important; 
+    }
+
+    .text#{$breakpoint}-right { 
+        text-align: center !important; 
+    }
+
+}

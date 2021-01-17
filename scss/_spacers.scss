@@ -1,0 +1,62 @@
+@use "variables" as *;
+
+.mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.my-auto {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}
+
+@each $num, $space in $spacers {
+    .mt-#{$num} {
+        margin-top: $space !important;
+    }
+
+    .mb-#{$num} {
+        margin-bottom: $space !important;
+    }
+
+    .ml-#{$num} {
+        margin-left: $space !important;
+    }
+
+    .mr-#{$num} {
+        margin-right: $space !important;
+    }
+
+    .mx-#{$num} {
+        @extend .ml-#{$num}, .mr-#{$num};
+    }
+
+    .my-#{$num} {
+        @extend .mt-#{$num}, .mb-#{$num};
+    }
+
+
+    .pt-#{$num} {
+        padding-top: $space !important;
+    }
+    
+    .pb-#{$num} {
+        padding-bottom: $space !important;
+    }
+    
+    .pl-#{$num} {
+        padding-left: $space !important;
+    }
+    
+    .pr-#{$num} {
+        padding-right: $space !important;
+    }
+    
+    .px-#{$num} {
+        @extend .pl-#{$num}, .pr-#{$num};
+    }
+    
+    .py-#{$num} {
+        @extend .pt-#{$num}, .pb-#{$num};
+    }
+}

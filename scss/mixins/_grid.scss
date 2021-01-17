@@ -1,0 +1,11 @@
+@mixin cols($name: "") {
+    
+    @for $i from 1 through 12 {
+        
+        .col#{$name}-#{$i} {
+            flex: 0 0 percentage($i / 12);
+           
+        }
+        
+    }
+}

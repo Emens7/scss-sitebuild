@@ -1,0 +1,87 @@
+@use "variables" as *;
+@use "mixins/text" as *;
+
+body {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+%heading {
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        @extend %heading;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+}
+
+.list-inline-item {
+    display: inline-block;
+}
+
+.list-inline-item:not(:last-child) {
+    margin-right: 0.5rem;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+
+@each $name, $breakpoint in $breakpoints {
+
+    @if $breakpoint != 0 {
+        
+        @media (min-width: $breakpoint) {
+    
+            @include text($name);
+    
+        }
+    }
+    @else {
+        @include text;
+    }
+
+}

@@ -1,0 +1,81 @@
+@use "sass:map";
+
+@use "variables" as *;
+@use "mixins/grid" as *;
+
+html {
+    box-sizing: border-box;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.container, .container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.container-fluid {
+    max-width: none;
+}
+
+@each $name, $width in $container-max-widths {
+    
+    @media (min-width: map.get($breakpoints, $name)) {
+        .container {
+            max-width: $width;
+        }
+    }
+    
+}
+
+
+%col {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+
+@each $name, $breakpoint in $breakpoints {
+    
+    @for $i from 1 through 12 {
+        
+        .col#{$name}-#{$i} {
+             @extend %col;
+        }
+        
+    }
+}
+
+@each $name, $breakpoint in $breakpoints {
+    
+    @if $breakpoint != 0 {
+        
+        @media (min-width: $breakpoint) {
+    
+            @include cols($name);
+    
+        }
+    }
+    @else {
+        @include cols;
+    }
+    
+}
