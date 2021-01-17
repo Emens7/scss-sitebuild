@@ -18,30 +18,37 @@ document.querySelector(".navbar-toggler").addEventListener("click", () => {
       }
 });
 
+//Modal
 
+const modal = document.querySelector(".modal");
 
-// Get the modal
-const modal = document.querySelector(".myModal");
+const btn = document.querySelector(".myBtn1");
 
-// Get the button that opens the modal
-var btn = document.querySelectorAll(".myBtn");
+const btn2 = document.querySelector(".myBtn2");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+const btn3 = document.querySelector(".myBtn3");
 
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+const span = document.querySelector(".close");
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+btn.addEventListener('click', () => {
+      modal.style.display = "block";
+});
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
+btn2.addEventListener('click', () => {
+      modal.style.display = "block";
+});
+
+btn3.addEventListener('click', () => {
+      modal.style.display = "block";
+});
+
+span.addEventListener('click', () => {
+      modal.style.display = "none";
+});
+
+window.addEventListener('click', (event) => {
+      if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+});
+
